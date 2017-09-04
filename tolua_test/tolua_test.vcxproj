@@ -39,7 +39,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\User\Desktop\tolua_test\include;$(IncludePath)</IncludePath>
+    <IncludePath>..\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\User\Desktop\tolua_test\lib;$(LibraryPath)</LibraryPath>
     <EmbedManifest>false</EmbedManifest>
     <ReferencePath>$(ReferencePath)</ReferencePath>
