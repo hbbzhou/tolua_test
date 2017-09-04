@@ -13,7 +13,8 @@ extern "C" {
 #include "tolua++.h"
 
 #include "../src/tfunction.h"
-#pragma comment (lib, "lua51.lib")
+#pragma comment (lib, "lua5.1.lib")
+#pragma comment (lib, "toluapp.lib")
 
 TOLUA_API int  tolua_tfunction_open (lua_State* tolua_S);
 
