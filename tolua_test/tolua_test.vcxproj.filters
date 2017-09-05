@@ -47,5 +47,8 @@
     <ClCompile Include="..\src\_tfunction.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="lua_ext_fun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

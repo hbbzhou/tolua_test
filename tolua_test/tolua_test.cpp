@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 #include <assert.h>
+#include <map>
+#include <stdio.h>
 
 
 extern "C" {
@@ -17,24 +19,56 @@ extern "C" {
 #pragma comment (lib, "toluapp.lib")
 
 TOLUA_API int  tolua_tfunction_open (lua_State* tolua_S);
+int luaopen_gslib(lua_State* L);
 
+
+
+std::map<std::string, Role *> g_map;
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	//初始化全局变量
+	Role oHbbRole;
+	g_map["hbb"] = &oHbbRole;
+
 	lua_State* L = lua_open();
 	luaL_openlibs(L);
 	tolua_tfunction_open(L);
-
+	luaopen_gslib(L);
 	if(luaL_dofile(L,"../script/tfunction.lua") ){
 		assert(0&& "open error");
 	}
+	
+	//协议处理逻辑
+	char str_cmd[128];
+	while (1) {
+		gets_s(str_cmd, 128);
 
-	Role role1 , role2;
-	role1.lv = 5;
-	lua_getglobal(L, "deal_role") ;//获取lua中的函数
-	lua_pushinteger(L , int(&role1) ); //调用lua_push系列函数，把输入参数压栈。例如lua_pushnumber(L, x)
-	lua_pushinteger(L , int(&role2) ); //调用lua_push系列函数，把输入参数压栈。例如lua_pushnumber(L, x)
-	lua_pcall(L, 2, 0, 0);
+		if (strcmp(str_cmd, "exit") == 0) {
+			break;
+		}
+		else if (strcmp(str_cmd, "1") == 0) {
+			lua_getglobal(L, "deal_msg");//获取lua中的函数
+			lua_pushinteger(L , int(1) ); //调用lua_push系列函数，把输入参数压栈。例如lua_pushnumber(L, x)
+			lua_pushstring(L , "hbb:role:SetLV:10" ); //调用lua_push系列函数，把输入参数压栈。例如lua_pushnumber(L, x)
+			lua_pcall(L, 2, 0, 0);
+		}
+		else if (strcmp(str_cmd, "reset") == 0) {
+			if (luaL_dofile(L, "../script/tfunction.lua")) {
+				assert(0 && "open error");
+			}
+		}
+		else{
+			printf("####\n");
+		}
+	}
+
+	//Role role1 , role2;
+	//role1.lv = 5;
+	//lua_getglobal(L, "deal_role") ;//获取lua中的函数
+	//lua_pushinteger(L , int(&role1) ); //调用lua_push系列函数，把输入参数压栈。例如lua_pushnumber(L, x)
+	//lua_pushinteger(L , int(&role2) ); //调用lua_push系列函数，把输入参数压栈。例如lua_pushnumber(L, x)
+	//lua_pcall(L, 2, 0, 0);
 
 
 	lua_close(L);

@@ -1,6 +1,6 @@
 /*
 ** Lua binding: tfunction
-** Generated automatically by tolua++-1.0.92 on 04/15/16 21:17:41.
+** Generated automatically by tolua++-1.0.92 on 09/05/17 13:30:28.
 */
 
 #ifndef __cplusplus
@@ -98,33 +98,98 @@ static int tolua_tfunction_Role_new00_local(lua_State* tolua_S)
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* get function: lv of class  Role */
-#ifndef TOLUA_DISABLE_tolua_get_Role_lv
-static int tolua_get_Role_lv(lua_State* tolua_S)
+/* get function: m_nLV of class  Role */
+#ifndef TOLUA_DISABLE_tolua_get_Role_m_nLV
+static int tolua_get_Role_m_nLV(lua_State* tolua_S)
 {
   Role* self = (Role*)  tolua_tousertype(tolua_S,1,0);
 #ifndef TOLUA_RELEASE
-  if (!self) tolua_error(tolua_S,"invalid 'self' in accessing variable 'lv'",NULL);
+  if (!self) tolua_error(tolua_S,"invalid 'self' in accessing variable 'm_nLV'",NULL);
 #endif
-  tolua_pushnumber(tolua_S,(lua_Number)self->lv);
+  tolua_pushnumber(tolua_S,(lua_Number)self->m_nLV);
  return 1;
 }
 #endif //#ifndef TOLUA_DISABLE
 
-/* set function: lv of class  Role */
-#ifndef TOLUA_DISABLE_tolua_set_Role_lv
-static int tolua_set_Role_lv(lua_State* tolua_S)
+/* set function: m_nLV of class  Role */
+#ifndef TOLUA_DISABLE_tolua_set_Role_m_nLV
+static int tolua_set_Role_m_nLV(lua_State* tolua_S)
 {
   Role* self = (Role*)  tolua_tousertype(tolua_S,1,0);
 #ifndef TOLUA_RELEASE
   tolua_Error tolua_err;
-  if (!self) tolua_error(tolua_S,"invalid 'self' in accessing variable 'lv'",NULL);
+  if (!self) tolua_error(tolua_S,"invalid 'self' in accessing variable 'm_nLV'",NULL);
   if (!tolua_isnumber(tolua_S,2,0,&tolua_err))
    tolua_error(tolua_S,"#vinvalid type in variable assignment.",&tolua_err);
 #endif
-  self->lv = ((int)  tolua_tonumber(tolua_S,2,0))
+  self->m_nLV = ((int)  tolua_tonumber(tolua_S,2,0))
 ;
  return 0;
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: SetLV of class  Role */
+#ifndef TOLUA_DISABLE_tolua_tfunction_Role_SetLV00
+static int tolua_tfunction_Role_SetLV00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Role",0,&tolua_err) ||
+     !tolua_isnumber(tolua_S,2,0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,3,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Role* self = (Role*)  tolua_tousertype(tolua_S,1,0);
+  int v_ = ((int)  tolua_tonumber(tolua_S,2,0));
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'SetLV'", NULL);
+#endif
+  {
+   self->SetLV(v_);
+  }
+ }
+ return 0;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'SetLV'.",&tolua_err);
+ return 0;
+#endif
+}
+#endif //#ifndef TOLUA_DISABLE
+
+/* method: GetLV of class  Role */
+#ifndef TOLUA_DISABLE_tolua_tfunction_Role_GetLV00
+static int tolua_tfunction_Role_GetLV00(lua_State* tolua_S)
+{
+#ifndef TOLUA_RELEASE
+ tolua_Error tolua_err;
+ if (
+     !tolua_isusertype(tolua_S,1,"Role",0,&tolua_err) ||
+     !tolua_isnoobj(tolua_S,2,&tolua_err)
+ )
+  goto tolua_lerror;
+ else
+#endif
+ {
+  Role* self = (Role*)  tolua_tousertype(tolua_S,1,0);
+#ifndef TOLUA_RELEASE
+  if (!self) tolua_error(tolua_S,"invalid 'self' in function 'GetLV'", NULL);
+#endif
+  {
+   int tolua_ret = (int)  self->GetLV();
+   tolua_pushnumber(tolua_S,(lua_Number)tolua_ret);
+  }
+ }
+ return 1;
+#ifndef TOLUA_RELEASE
+ tolua_lerror:
+ tolua_error(tolua_S,"#ferror in function 'GetLV'.",&tolua_err);
+ return 0;
+#endif
 }
 #endif //#ifndef TOLUA_DISABLE
 
@@ -340,7 +405,9 @@ TOLUA_API int tolua_tfunction_open (lua_State* tolua_S)
    tolua_function(tolua_S,"new",tolua_tfunction_Role_new00);
    tolua_function(tolua_S,"new_local",tolua_tfunction_Role_new00_local);
    tolua_function(tolua_S,".call",tolua_tfunction_Role_new00_local);
-   tolua_variable(tolua_S,"lv",tolua_get_Role_lv,tolua_set_Role_lv);
+   tolua_variable(tolua_S,"m_nLV",tolua_get_Role_m_nLV,tolua_set_Role_m_nLV);
+   tolua_function(tolua_S,"SetLV",tolua_tfunction_Role_SetLV00);
+   tolua_function(tolua_S,"GetLV",tolua_tfunction_Role_GetLV00);
    tolua_function(tolua_S,"Change",tolua_tfunction_Role_Change00);
   tolua_endmodule(tolua_S);
   #ifdef __cplusplus

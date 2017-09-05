@@ -9,8 +9,16 @@
 class Role {//tolua_export
 public:
 	//tolua_begin
-	Role():lv(2){}
-	int lv;
+	Role():m_nLV(2){}
+	int m_nLV;
+
+#pragma region 
+	void SetLV(int v_) {
+		m_nLV = v_;
+	}
+	int GetLV() { return m_nLV; }
+
+#pragma endregion
 
 	static Role*  Change (int x)
 	{
@@ -34,7 +42,7 @@ public:
 
 	int LvAdd (Role x, Role y)
 	{
-		return x.lv+ y.lv;
+		return x.m_nLV + y.m_nLV;
 	}
 
 	static TestClass* MakeObj (float x, float y)
