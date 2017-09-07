@@ -1,5 +1,4 @@
 
-
 function trace (event, line)
     local s = debug.getinfo(2).short_src
     print(s .. ":##########" .. line)
@@ -20,22 +19,40 @@ function deal_role (x ,y)
 end
 
 
---初始化全局变量
 local g_MsgID2Fun = { [14] = msg_dealer.d_gm }
-
 function deal_msg (nMsgID , str_)
-	--协议注册
 	print ( "#####" , debug.getinfo(1).name , debug.getinfo(1).currentline )
 	local pFun = g_MsgID2Fun[nMsgID]
 	if pFun == nil then
 		print("not find msg id")
 		return
 	end
-	
 	pFun(str_)
+	
 	print ( "#####" , debug.getinfo(1).name , debug.getinfo(1).currentline )
 end
 
+
+function test1 ()
+	local pRole = gslib.FindRole("hbb")
+	if pRole == nil then
+		print("error")
+		return
+	end
+	pRole:SetLV(10)
+end
+
+
 --debug.sethook()
+
+
+
+
+
+
+
+
+
+
 
 

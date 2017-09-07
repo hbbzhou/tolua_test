@@ -4,17 +4,20 @@
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
+#include "type.h"
 
 
 class Role {//tolua_export
 public:
+	int m_nLV;
 	//tolua_begin
 	Role():m_nLV(2){}
-	int m_nLV;
 
 #pragma region 
-	void SetLV(int v_) {
-		m_nLV = v_;
+	void SetLV(const int32 & v_) { m_nLV = v_; }
+	void SetExp( int v_) 
+	{ 
+		m_nLV = v_; 
 	}
 	int GetLV() { return m_nLV; }
 

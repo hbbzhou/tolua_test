@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>..\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\User\Desktop\tolua_test\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\lib;$(LibraryPath)</LibraryPath>
     <EmbedManifest>false</EmbedManifest>
     <ReferencePath>$(ReferencePath)</ReferencePath>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
@@ -59,6 +59,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -86,8 +87,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\script\tfunction.lua" />
-    <None Include="..\src\tolua.bat" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +96,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\_tfunction.cpp" />
     <ClCompile Include="lua_ext_fun.cpp" />
+    <ClCompile Include="pb.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="tolua_test.cpp" />
   </ItemGroup>

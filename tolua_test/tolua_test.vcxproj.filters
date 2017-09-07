@@ -22,12 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
-    <None Include="..\src\tolua.bat">
-      <Filter>script</Filter>
-    </None>
-    <None Include="..\script\tfunction.lua">
-      <Filter>script</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -48,6 +42,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="lua_ext_fun.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pb.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
